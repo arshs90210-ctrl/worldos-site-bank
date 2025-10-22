@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 /*
- * Color palette and variables
+ * Global variables and base styles
  *
- * We stick to a dark theme with vibrant accent colors inspired by
- * the WorldOS vision. These CSS variables make it easy to adjust
- * the look and feel globally.
+ * We maintain a cohesive dark theme with vibrant accent colors inspired by
+ * the WorldOS vision. These CSS variables enable quick, global adjustments.
  */
 :root {
     --bg-color: #0d0d11;
@@ -30,15 +29,10 @@ body {
     line-height: 1.6;
 }
 
-/* Hero section styles */
+/* Hero section */
 header#hero {
     position: relative;
     height: 100vh;
-    /*
-     * The hero background references a file in the root of the site. When
-     * deploying to GitHub Pages or any static host, this relative path
-     * resolves correctly alongside index.html.
-     */
     background-image: url('hero.png');
     background-size: cover;
     background-position: center;
@@ -94,7 +88,12 @@ header#hero p {
     background: linear-gradient(90deg, var(--accent2), var(--accent));
 }
 
-/* Navigation bar */
+.cta-button.small {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+}
+
+/* Navigation */
 .navbar {
     position: sticky;
     top: 0;
@@ -121,7 +120,7 @@ header#hero p {
     color: var(--accent);
 }
 
-/* Section base styles */
+/* Section base */
 .section {
     padding: 4rem 2rem;
     max-width: 1000px;
@@ -156,7 +155,6 @@ header#hero p {
     width: 40px;
     height: 40px;
     margin-bottom: 1rem;
-    /* Tint the SVG to match the accent colour */
     filter: invert(62%) sepia(59%) saturate(3886%) hue-rotate(202deg) brightness(92%) contrast(92%);
 }
 
@@ -171,7 +169,7 @@ header#hero p {
     color: var(--text-muted);
 }
 
-/* Architecture diagram and module list */
+/* Architecture diagram & modules */
 .architecture-section .architecture-diagram {
     display: block;
     margin: 2rem auto;
@@ -198,7 +196,7 @@ header#hero p {
     font-size: 0.95rem;
 }
 
-/* Security section */
+/* Security */
 .security-section .security-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -232,7 +230,7 @@ header#hero p {
     color: var(--text-muted);
 }
 
-/* Extensions section */
+/* Extensions */
 .extensions-section .extensions-content {
     display: flex;
     flex-wrap: wrap;
@@ -252,7 +250,103 @@ header#hero p {
     filter: invert(62%) sepia(59%) saturate(3886%) hue-rotate(202deg) brightness(92%) contrast(92%);
 }
 
-/* Contact section */
+/* Data Bank */
+.databank-section {
+    margin-top: 2rem;
+}
+
+.databank-section .layer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.layer-card {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.layer-card img {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0.75rem;
+    filter: invert(62%) sepia(59%) saturate(3886%) hue-rotate(202deg) brightness(92%) contrast(92%);
+}
+
+.layer-card h3 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.layer-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.databank-section .vault-interface,
+.databank-section .ledger-interface {
+    margin-top: 3rem;
+}
+
+.databank-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--accent2);
+}
+
+.deposit-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.deposit-form input[type="file"] {
+    flex: 1;
+    background: var(--bg-alt);
+    border: 1px solid var(--card-border);
+    color: var(--text-light);
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.help-text {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Ledger table */
+.ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.ledger-table th,
+.ledger-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--card-border);
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.ledger-table th {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.ledger-table td {
+    color: var(--text-muted);
+    word-break: break-all;
+}
+
+/* Contact */
 .contact-section {
     text-align: center;
 }
@@ -282,5 +376,12 @@ footer {
     }
     .navbar ul {
         gap: 1rem;
+    }
+    .deposit-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .layer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
