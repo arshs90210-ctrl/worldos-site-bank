@@ -541,3 +541,16 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
+
+/* === Sprint statistics and vault creation === */
+.sprint-stats {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+#create-vault-btn {
+    margin-bottom: 1rem;
+}

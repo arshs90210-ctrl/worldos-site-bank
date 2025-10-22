@@ -150,6 +150,20 @@
                 <p>Run AI analysis locally to extract insights. Turn your data into value without sacrificing privacy.</p>
             </div>
         </div>
+        <!-- Sprint counters and Vault creation -->
+        <div class="sprint-stats">
+            <div>
+                <strong>Total Vaults Created:</strong> <span id="total-vaults">0</span>
+            </div>
+            <div>
+                <strong>Total Proofs of Deposit:</strong> <span id="total-pods">0</span>
+            </div>
+        </div>
+        <button id="create-vault-btn" class="cta-button small">Create Vault</button>
+
+        <!-- Badge showing Data Bank pioneer number -->
+        <p id="pioneer-badge" class="help-text" style="display:none;"></p>
+
         <!-- Authentication area for multiple vaults -->
         <div class="auth-interface">
             <h3>Vault Access</h3>
@@ -199,6 +213,7 @@
                             <th>QR</th>
                             <th>Insight</th>
                             <th>Policy</th>
+                            <th>Certificate</th>
                         </tr>
                     </thead>
                     <tbody></tbody>

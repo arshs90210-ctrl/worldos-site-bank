@@ -189,6 +189,90 @@
         localStorage.setItem(`ledger_${username}`, JSON.stringify(ledger));
     }
 
+    // -------------------------------------------------------------------------
+    // Global sprint counters and pioneer badge
+    // -------------------------------------------------------------------------
+    function loadCounters() {
+        return {
+            totalVaults: parseInt(localStorage.getItem('totalVaults') || '0', 10),
+            totalPoDs: parseInt(localStorage.getItem('totalPoDs') || '0', 10)
+        };
+    }
+    function saveCounters(counters) {
+        localStorage.setItem('totalVaults', counters.totalVaults);
+        localStorage.setItem('totalPoDs', counters.totalPoDs);
+    }
+    function updateCountersDisplay() {
+        const counters = loadCounters();
+        const tv = document.getElementById('total-vaults');
+        const tp = document.getElementById('total-pods');
+        if (tv) tv.textContent = counters.totalVaults;
+        if (tp) tp.textContent = counters.totalPoDs;
+    }
+    function incrementVaults() {
+        const counters = loadCounters();
+        counters.totalVaults += 1;
+        saveCounters(counters);
+        updateCountersDisplay();
+        return counters.totalVaults;
+    }
+    function incrementPoDs() {
+        const counters = loadCounters();
+        counters.totalPoDs += 1;
+        saveCounters(counters);
+        updateCountersDisplay();
+        return counters.totalPoDs;
+    }
+
+    /**
+     * Update the pioneer badge with current vault number.
+     * @param {number} id
+     */
+    function setPioneerBadge(id) {
+        const badgeEl = document.getElementById('pioneer-badge');
+        if (badgeEl) {
+            badgeEl.textContent = `Data Bank Pioneer #${String(id).padStart(5, '0')}`;
+            badgeEl.style.display = '';
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Certificate generation
+    // -------------------------------------------------------------------------
+    function loadPdfLibrary() {
+        return new Promise((resolve) => {
+            if (window.jspdf) { resolve(); return; }
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+            script.onload = () => resolve();
+            script.onerror = () => resolve();
+            document.head.appendChild(script);
+        });
+    }
+    async function generateCertificate(record, index) {
+        await loadPdfLibrary();
+        if (!window.jspdf) { alert('PDF library failed to load'); return; }
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.setFontSize(18);
+        doc.text('WorldOS Data Bank Certificate', 105, 20, { align: 'center' });
+        doc.setFontSize(12);
+        let y = 40;
+        doc.text(`User: ${currentUser || 'N/A'}`, 20, y);
+        y += 10;
+        doc.text(`File: ${record.name}`, 20, y);
+        y += 10;
+        doc.text(`Timestamp: ${new Date(record.timestamp).toLocaleString()}`, 20, y);
+        y += 10;
+        doc.text(`PoD Hash: ${record.hash}`, 20, y);
+        y += 10;
+        doc.text(`Signature: ${record.signature || 'N/A'}`, 20, y);
+        y += 10;
+        doc.text(`Policy: ${policySummary(record.policy)}`, 20, y);
+        // Save PDF
+        doc.save(`pod_certificate_${String(index+1).padStart(4, '0')}.pdf`);
+    }
+
     /**
      * Register a new user and generate a signing key pair.
      * @param {string} username
@@ -302,12 +386,23 @@
         const tdPolicy = document.createElement('td');
         tdPolicy.textContent = policySummary(record.policy);
 
+        // Certificate cell
+        const tdCert = document.createElement('td');
+        const certBtn = document.createElement('button');
+        certBtn.textContent = 'PDF';
+        certBtn.className = 'insight-btn';
+        certBtn.addEventListener('click', () => {
+            generateCertificate(record, index);
+        });
+        tdCert.appendChild(certBtn);
+
         tr.appendChild(tdName);
         tr.appendChild(tdTime);
         tr.appendChild(tdHash);
         tr.appendChild(tdQr);
         tr.appendChild(tdInsight);
         tr.appendChild(tdPolicy);
+        tr.appendChild(tdCert);
         tbody.appendChild(tr);
         // Render QR code
         loadQrLibrary().then(() => {
@@ -515,6 +610,19 @@
             }
         });
 
+        // Initialize counters display on load
+        updateCountersDisplay();
+
+        // Handle create vault button
+        const createVaultBtn = document.getElementById('create-vault-btn');
+        if (createVaultBtn) {
+            createVaultBtn.addEventListener('click', () => {
+                const newId = incrementVaults();
+                showToast('Vault created!');
+                setPioneerBadge(newId);
+            });
+        }
+
         // Deposit form submission
         depositForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -561,6 +669,12 @@
                 ledger.push(record);
                 saveLedger(currentUser, ledger);
                 renderLedger(searchInput.value);
+                // increment global PoDs counter and update pioneer badge if first deposit
+                const podId = incrementPoDs();
+                // If this is the first PoD for this user, assign pioneer badge
+                if (podId) {
+                    setPioneerBadge(podId);
+                }
                 showToast('File deposited. Proof recorded ✅');
                 // reset fields
                 fileInput.value = '';
