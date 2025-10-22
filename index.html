@@ -150,33 +150,65 @@
                 <p>Run AI analysis locally to extract insights. Turn your data into value without sacrificing privacy.</p>
             </div>
         </div>
-        <div class="vault-interface">
+        <!-- Authentication area for multiple vaults -->
+        <div class="auth-interface">
+            <h3>Vault Access</h3>
+            <p>Create or select a vault by entering a username and password. Each vault is isolated and encrypted locally.</p>
+            <div class="auth-fields">
+                <input type="text" id="username" placeholder="Username" />
+                <input type="password" id="password" placeholder="Password" />
+                <button id="login-btn" class="cta-button small">Login</button>
+                <button id="register-btn" class="cta-button small secondary">Register</button>
+            </div>
+            <p id="auth-status" class="help-text"></p>
+        </div>
+        <!-- Deposit area -->
+        <div class="vault-interface" id="vault-interface" style="display: none;">
             <h3>Deposit Data</h3>
             <form id="deposit-form" class="deposit-form">
                 <input type="file" id="data-file" accept="*/*" />
+                <input type="password" id="passphrase" placeholder="Encryption passphrase" />
+                <!-- Simple policy editor -->
+                <div class="policy-editor">
+                    <input type="date" id="policy-start" placeholder="Start date" />
+                    <input type="date" id="policy-end" placeholder="End date" />
+                    <input type="text" id="policy-usage" placeholder="Permitted uses (comma separated)" />
+                    <select id="policy-anon">
+                        <option value="none">No anonymization</option>
+                        <option value="partial">Partial anonymization</option>
+                        <option value="full">Full anonymization</option>
+                    </select>
+                    <input type="text" id="policy-comp" placeholder="Compensation (symbolic)" />
+                </div>
                 <button type="submit" class="cta-button small">Deposit</button>
             </form>
-            <p class="help-text">Select a file to store in your personal vault. The hash is computed locally and stored only on your device.</p>
+            <p class="help-text">Select a file, choose a passphrase and optional license terms. The file will be encrypted and stored locally; the hash and signature are recorded in your ledger.</p>
         </div>
-        <div class="ledger-interface">
+        <!-- Ledger area -->
+        <div class="ledger-interface" id="ledger-interface" style="display: none;">
             <h3>Your Ledger</h3>
-            <table id="ledger-table" class="ledger-table">
-                <thead>
-                    <tr>
-                        <th>File Name</th>
-                        <th>Timestamp</th>
-                        <th>Proof of Deposit</th>
-                        <th>QR</th>
-                        <th>Insight</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <input type="text" id="search-ledger" placeholder="Search by file name..." class="search-field" />
+            <details open>
+                <summary>Show/Hide Records</summary>
+                <table id="ledger-table" class="ledger-table">
+                    <thead>
+                        <tr>
+                            <th>File Name</th>
+                            <th>Timestamp</th>
+                            <th>Proof of Deposit</th>
+                            <th>QR</th>
+                            <th>Insight</th>
+                            <th>Policy</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </details>
             <div class="data-tools">
                 <button id="export-btn" class="cta-button small">Export Vault</button>
                 <label class="import-label">
                     Import Vault
-                    <input type="file" id="import-file" accept="application/json">
+                    <input type="file" id="import-file" accept="application/zip,application/json">
                 </label>
             </div>
         </div>
