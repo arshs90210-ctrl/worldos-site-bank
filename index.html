@@ -55,6 +55,12 @@
                 <h3>Portable Worlds</h3>
                 <p>Export your entire world to a portable package and import it anywhere.</p>
             </div>
+            <!-- New proof‑of‑deposit feature card -->
+            <div class="feature-card">
+                <img src="shield.svg" alt="Proof of Deposit" />
+                <h3>Proof of Deposit</h3>
+                <p>Each file creates a verifiable hash — your private receipt of authenticity.</p>
+            </div>
         </div>
     </section>
 
@@ -121,6 +127,7 @@
     <section id="databank" class="section databank-section">
         <h2>WorldOS Data Bank</h2>
         <p>Transform your information into a protected, productive asset. Deposit data into your personal vault, record a Proof of Deposit ledger, and choose when to share or earn insights from your knowledge.</p>
+        <p><strong>WorldOS is your personal data bank — deposit, verify, and own your information like currency.</strong></p>
         <div class="layer-grid">
             <div class="layer-card">
                 <img src="vault.svg" alt="Vault" />
@@ -159,10 +166,19 @@
                         <th>File Name</th>
                         <th>Timestamp</th>
                         <th>Proof of Deposit</th>
+                        <th>QR</th>
+                        <th>Insight</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
+            <div class="data-tools">
+                <button id="export-btn" class="cta-button small">Export Vault</button>
+                <label class="import-label">
+                    Import Vault
+                    <input type="file" id="import-file" accept="application/json">
+                </label>
+            </div>
         </div>
     </section>
 

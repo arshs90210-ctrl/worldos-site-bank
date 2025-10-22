@@ -88,6 +88,81 @@ header#hero p {
     background: linear-gradient(90deg, var(--accent2), var(--accent));
 }
 
+/* Accent border on deposit button hover */
+.cta-button.small:hover {
+    box-shadow: 0 0 0 2px var(--accent2), 0 0 8px var(--accent2);
+}
+
+/* Ledger row fade‑in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.ledger-table tbody tr {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--bg-alt);
+    color: var(--text-light);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+/* Data tools (export/import) */
+.data-tools {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.import-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--accent);
+}
+
+.import-label input[type="file"] {
+    display: none;
+}
+
+/* QR code images */
+.qr {
+    width: 60px;
+    height: 60px;
+}
+
+/* Insight button */
+.insight-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.85rem;
+}
+.insight-btn:hover {
+    color: var(--accent2);
+}
+
 .cta-button.small {
     padding: 0.5rem 1.25rem;
     font-size: 0.9rem;
