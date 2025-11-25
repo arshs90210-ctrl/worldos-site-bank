@@ -1,187 +1,491 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorldOS // Sovereign Data Bank</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>WorldOS Data Bank – Own Your Information</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <script defer src="app.js"></script>
+
 </head>
+
 <body>
 
-    <div class="noise-overlay"></div>
 
-    <nav class="navbar">
-        <div class="logo">WORLD<span class="highlight">OS</span>_</div>
-        <ul class="nav-links">
-            <li><a href="#features">Core</a></li>
-            <li><a href="#architecture">Arch</a></li>
-            <li><a href="#databank">DataBank</a></li>
-        </ul>
-        <a href="#databank" class="cta-button small">Launch Node</a>
-    </nav>
+
+    <!-- Hero Section -->
 
     <header id="hero">
+
+        <div class="overlay"></div>
+
         <div class="hero-content">
-            <div class="badge">v2.0 // DECENTRALIZED PROTOCOL</div>
-            <h1>OWN YOUR<br>DIGITAL <span class="gradient-text">SOVEREIGNTY</span></h1>
-            <p>Build portable micro‑internets. Encrypt locally. Sync purely on your terms.</p>
-            <div class="hero-actions">
-                <a href="#databank" class="cta-button">Initialize Vault</a>
-                <a href="#features" class="cta-button secondary">Read Documentation</a>
-            </div>
+
+            <h1>Own Your Corner of the Web</h1>
+
+            <p>Build portable micro‑internets that work offline and sync on your terms.</p>
+
+            <a href="#features" class="cta-button">Explore Features</a>
+
         </div>
-        <div class="hero-visual">
-            <div class="grid-sphere"></div>
-        </div>
+
     </header>
 
-    <section id="features" class="section">
-        <div class="section-header">
-            <h2>SYSTEM KERNEL</h2>
-            <p class="mono">/features/core_modules</p>
-        </div>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <ul>
+
+            <li><a href="#features">Features</a></li>
+
+            <li><a href="#architecture">Architecture</a></li>
+
+            <li><a href="#security">Security</a></li>
+
+            <li><a href="#extensions">Extensions</a></li>
+
+            <li><a href="#databank">Data&nbsp;Bank</a></li>
+
+            <li><a href="#contact">Get&nbsp;Started</a></li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- Features Section -->
+
+    <section id="features" class="section features-section">
+
+        <h2>Core Features</h2>
+
         <div class="feature-grid">
+
             <div class="feature-card">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                </div>
-                <h3>Local-First</h3>
-                <p>Zero-latency interactions. Your world lives on silicon, not the cloud.</p>
+
+                <img src="server.svg" alt="Local‑First" />
+
+                <h3>Local‑First</h3>
+
+                <p>Your world lives on your device and syncs only when you choose to.</p>
+
             </div>
+
             <div class="feature-card">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12 2.1 12a10.01 10.01 0 0 0 1.5 4"></path><path d="M12 12 17.5 21.5a10 10 0 0 0 3.9-5"></path></svg>
-                </div>
-                <h3>Neural Memory</h3>
-                <p>Vector embeddings allow semantic recall of every file and conversation.</p>
+
+                <img src="brain.svg" alt="AI Memory" />
+
+                <h3>AI Memory</h3>
+
+                <p>Recall conversations and files using built‑in embeddings and summarization.</p>
+
             </div>
+
             <div class="feature-card">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                </div>
+
+                <img src="palette.svg" alt="Design Skins" />
+
+                <h3>Design Skins</h3>
+
+                <p>Customize typography, colours and layout; share your theme with the world.</p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <img src="cube.svg" alt="Portable Worlds" />
+
                 <h3>Portable Worlds</h3>
-                <p>Export your entire OS state to a single JSON container. Import anywhere.</p>
+
+                <p>Export your entire world to a portable package and import it anywhere.</p>
+
             </div>
+
+            <!-- New proof‑of‑deposit feature card -->
+
             <div class="feature-card">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                </div>
+
+                <img src="shield.svg" alt="Proof of Deposit" />
+
                 <h3>Proof of Deposit</h3>
-                <p>Cryptographic hashing receipts for every byte of data you store.</p>
+
+                <p>Each file creates a verifiable hash — your private receipt of authenticity.</p>
+
             </div>
+
         </div>
+
     </section>
 
-    <section id="databank" class="section dark-mode">
-        <div class="section-header">
-            <h2>DATA BANK_TERMINAL</h2>
-            <p class="mono">/usr/local/vault</p>
-        </div>
 
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-                <div class="terminal-title">bash --login world_os</div>
-            </div>
-            
-            <div class="terminal-body">
-                
-                <div id="auth-interface" class="interface-panel active">
-                    <div class="ascii-art">
-  _    _  ___  ____  _     ____  
- | |  | |/ _ \|  _ \| |   |  _ \ 
- | |  | | | | | |_) | |   | | | |
- | |/\| | |_| |  _ <| |___| |_| |
-  \_/\_/ \___/|_| \_\_____|____/ 
-                    </div>
-                    <h3><span class="blink">></span> Awaiting Credentials...</h3>
-                    <div class="input-group">
-                        <input type="text" id="username" placeholder="USER_ID">
-                        <input type="password" id="password" placeholder="ACCESS_KEY">
-                    </div>
-                    <div class="action-row">
-                        <button id="login-btn" class="terminal-btn">EXECUTE LOGIN</button>
-                        <button id="register-btn" class="terminal-btn outline">INIT NEW USER</button>
-                    </div>
-                    <p id="auth-status" class="status-text"></p>
-                </div>
 
-                <div id="dashboard-interface" class="interface-panel" style="display: none;">
-                    <div class="stats-row">
-                        <div class="stat-box">
-                            <span class="label">VAULT STATUS</span>
-                            <span class="value success">ONLINE</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="label">TOTAL PROOFS</span>
-                            <span class="value" id="total-pods">0</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="label">ENCRYPTION</span>
-                            <span class="value">AES-256</span>
-                        </div>
-                    </div>
+    <!-- Architecture Section -->
 
-                    <div class="dash-grid">
-                        <div class="dash-panel">
-                            <h4>// DEPOSIT DATA</h4>
-                            <form id="deposit-form">
-                                <label class="file-drop">
-                                    <span>DRAG FILE OR CLICK TO UPLOAD</span>
-                                    <input type="file" id="data-file">
-                                </label>
-                                <input type="password" id="passphrase" placeholder="ENCRYPTION KEY">
-                                
-                                <div class="policy-controls">
-                                    <select id="policy-anon">
-                                        <option value="none">No Anonymization</option>
-                                        <option value="partial">Partial Hash</option>
-                                        <option value="full">Zero Knowledge</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="terminal-btn full-width">HASH & DEPOSIT</button>
-                            </form>
-                        </div>
+    <section id="architecture" class="section architecture-section">
 
-                        <div class="dash-panel">
-                            <h4>// IMMUTABLE LEDGER</h4>
-                            <div class="ledger-container">
-                                <table id="ledger-table">
-                                    <thead>
-                                        <tr>
-                                            <th>FILE_ID</th>
-                                            <th>TIMESTAMP</th>
-                                            <th>HASH (SHA-256)</th>
-                                            <th>POLICY</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="action-row right">
-                         <button id="logout-btn" class="terminal-btn outline small">TERMINATE SESSION</button>
-                    </div>
-                </div>
+        <h2>Modular Architecture</h2>
+
+        <p>WorldOS is built from thin, powerful modules so you can extend and adapt it to your needs.</p>
+
+        <img src="modules.png" alt="WorldOS modular architecture" class="architecture-diagram" />
+
+        <div class="module-list">
+
+            <div class="module-item">
+
+                <h3>Presence</h3>
+
+                <p>Real‑time chat, posts and reactions with CRDTs for conflict‑free collaboration.</p>
 
             </div>
+
+            <div class="module-item">
+
+                <h3>Memory</h3>
+
+                <p>Local embeddings power retrieval‑augmented prompts, summarization and search.</p>
+
+            </div>
+
+            <div class="module-item">
+
+                <h3>Theming</h3>
+
+                <p>Create your own look and feel with shareable skins.</p>
+
+            </div>
+
+            <div class="module-item">
+
+                <h3>Sync &amp; Identity</h3>
+
+                <p>Optional peer‑to‑peer or relay sync with per‑world key pairs and role‑scoped tokens.</p>
+
+            </div>
+
         </div>
+
     </section>
+
+
+
+    <!-- Security Section -->
+
+    <section id="security" class="section security-section">
+
+        <h2>Security &amp; Privacy</h2>
+
+        <div class="security-container">
+
+            <div class="security-card">
+
+                <img src="lock.svg" alt="Signed Writes" />
+
+                <h3>Signed Writes</h3>
+
+                <p>Every change is signed with your world and device keys for tamper‑proof history.</p>
+
+            </div>
+
+            <div class="security-card">
+
+                <img src="lock.svg" alt="Granular Permissions" />
+
+                <h3>Granular Permissions</h3>
+
+                <p>Capability tokens grant fine‑grained access to members based on roles.</p>
+
+            </div>
+
+            <div class="security-card">
+
+                <img src="lock.svg" alt="Privacy Modes" />
+
+                <h3>Privacy Modes</h3>
+
+                <p>Choose sealed, invite or open modes to control how your world is shared.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Extensions Section -->
+
+    <section id="extensions" class="section extensions-section">
+
+        <h2>Extensions &amp; SDK</h2>
+
+        <div class="extensions-content">
+
+            <div class="extensions-text">
+
+                <p>Build on WorldOS through a secure sandbox. Declare the capabilities you need — key‑value storage, file read/write, event subscriptions, AI queries and custom UI panels — and create rich plug‑ins.</p>
+
+                <p>A marketplace connects your creations with the community. Monetize premium extensions or offer them for free.</p>
+
+            </div>
+
+            <img src="plug.svg" alt="Extensions" class="extensions-icon" />
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Data Bank Section -->
+
+    <section id="databank" class="section databank-section">
+
+        <h2>WorldOS Data Bank</h2>
+
+        <p>Transform your information into a protected, productive asset. Deposit data into your personal vault, record a Proof of Deposit ledger, and choose when to share or earn insights from your knowledge.</p>
+
+        <p><strong>WorldOS is your personal data bank — deposit, verify, and own your information like currency.</strong></p>
+
+        <div class="layer-grid">
+
+            <div class="layer-card">
+
+                <img src="vault.svg" alt="Vault" />
+
+                <h3>Vault</h3>
+
+                <p>Local, encrypted storage for your chats, documents and media. Each deposit generates a unique Proof‑of‑Deposit (PoD) hash.</p>
+
+            </div>
+
+            <div class="layer-card">
+
+                <img src="table.svg" alt="Ledger" />
+
+                <h3>Ledger</h3>
+
+                <p>An immutable record of your deposits. Track ownership, timestamps and integrity for every piece of data.</p>
+
+            </div>
+
+            <div class="layer-card">
+
+                <img src="handshake.svg" alt="Exchange" />
+
+                <h3>Exchange</h3>
+
+                <p>License or lend your data under contracts you control. Define duration, scope and anonymization before sharing.</p>
+
+            </div>
+
+            <div class="layer-card">
+
+                <img src="robot.svg" alt="Treasury" />
+
+                <h3>Treasury</h3>
+
+                <p>Run AI analysis locally to extract insights. Turn your data into value without sacrificing privacy.</p>
+
+            </div>
+
+        </div>
+
+        <!-- Sprint counters and Vault creation -->
+
+        <div class="sprint-stats">
+
+            <div>
+
+                <strong>Total Vaults Created:</strong> <span id="total-vaults">0</span>
+
+            </div>
+
+            <div>
+
+                <strong>Total Proofs of Deposit:</strong> <span id="total-pods">0</span>
+
+            </div>
+
+        </div>
+
+        <button id="create-vault-btn" class="cta-button small">Create Vault</button>
+
+
+
+        <!-- Badge showing Data Bank pioneer number -->
+
+        <p id="pioneer-badge" class="help-text" style="display:none;"></p>
+
+
+
+        <!-- Authentication area for multiple vaults -->
+
+        <div class="auth-interface">
+
+            <h3>Vault Access</h3>
+
+            <p>Create or select a vault by entering a username and password. Each vault is isolated and encrypted locally.</p>
+
+            <div class="auth-fields">
+
+                <input type="text" id="username" placeholder="Username" />
+
+                <input type="password" id="password" placeholder="Password" />
+
+                <button id="login-btn" class="cta-button small">Login</button>
+
+                <button id="register-btn" class="cta-button small secondary">Register</button>
+
+            </div>
+
+            <p id="auth-status" class="help-text"></p>
+
+        </div>
+
+        <!-- Deposit area -->
+
+        <div class="vault-interface" id="vault-interface" style="display: none;">
+
+            <h3>Deposit Data</h3>
+
+            <form id="deposit-form" class="deposit-form">
+
+                <input type="file" id="data-file" accept="*/*" />
+
+                <input type="password" id="passphrase" placeholder="Encryption passphrase" />
+
+                <!-- Simple policy editor -->
+
+                <div class="policy-editor">
+
+                    <input type="date" id="policy-start" placeholder="Start date" />
+
+                    <input type="date" id="policy-end" placeholder="End date" />
+
+                    <input type="text" id="policy-usage" placeholder="Permitted uses (comma separated)" />
+
+                    <select id="policy-anon">
+
+                        <option value="none">No anonymization</option>
+
+                        <option value="partial">Partial anonymization</option>
+
+                        <option value="full">Full anonymization</option>
+
+                    </select>
+
+                    <input type="text" id="policy-comp" placeholder="Compensation (symbolic)" />
+
+                </div>
+
+                <button type="submit" class="cta-button small">Deposit</button>
+
+            </form>
+
+            <p class="help-text">Select a file, choose a passphrase and optional license terms. The file will be encrypted and stored locally; the hash and signature are recorded in your ledger.</p>
+
+        </div>
+
+        <!-- Ledger area -->
+
+        <div class="ledger-interface" id="ledger-interface" style="display: none;">
+
+            <h3>Your Ledger</h3>
+
+            <input type="text" id="search-ledger" placeholder="Search by file name..." class="search-field" />
+
+            <details open>
+
+                <summary>Show/Hide Records</summary>
+
+                <table id="ledger-table" class="ledger-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>File Name</th>
+
+                            <th>Timestamp</th>
+
+                            <th>Proof of Deposit</th>
+
+                            <th>QR</th>
+
+                            <th>Insight</th>
+
+                            <th>Policy</th>
+
+                            <th>Certificate</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+
+            </details>
+
+            <div class="data-tools">
+
+                <button id="export-btn" class="cta-button small">Export Vault</button>
+
+                <label class="import-label">
+
+                    Import Vault
+
+                    <input type="file" id="import-file" accept="application/zip,application/json">
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Contact Section -->
+
+    <section id="contact" class="section contact-section">
+
+        <h2>Get Started</h2>
+
+        <p>Ready to build your own world? Join the builder program, contribute extensions or just explore our sample worlds. Contact us to learn more.</p>
+
+        <a href="mailto:hello@example.com" class="cta-button">Email Us</a>
+
+    </section>
+
+
+
+    <!-- Footer -->
 
     <footer>
-        <p class="mono">WorldOS © 2025 // SYSTEM READY</p>
+
+        <p>&copy; 2025 WorldOS Project. All rights reserved.</p>
+
     </footer>
 
-    <script src="app.js"></script>
+
+
 </body>
+
 </html>
+
+
